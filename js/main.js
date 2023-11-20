@@ -8,15 +8,23 @@
 
 
 
-const generaBiglietto = document.getElementById("generaBiglietto");
+const generaBiglietto = document.getElementById("genera-biglietto");
 console.log("biglietto generato" ,generaBiglietto);
+
+
 
 generaBiglietto.addEventListener("click" ,
 
     function() {
-        
+    // USER NAME
+    const userName = document.getElementById("userName").value;
+
+    // VALUE USER DISTANCE
     const userDistance = document.getElementById("userDistance").value;
+
+    // VALUE USER ETÀ
     const userEta = document.getElementById("userEta").value;
+
     // il prezzo del biglietto è definito in base ai km (0.21 € al km)
     const prezzoKm = 0.21;
     console.log("euro per km", prezzoKm);
@@ -30,6 +38,7 @@ generaBiglietto.addEventListener("click" ,
     let sconto = 0;
     let risultato = 0
 
+
     if (userEta <17){
         sconto = ((totalPrice * 20) / 100);
         console.log("sconto minorenne", sconto);
@@ -40,9 +49,28 @@ generaBiglietto.addEventListener("click" ,
         console.log("sconto over65", sconto);
     }
 
+
     risultato = totalPrice - sconto;
     console.log(risultato);
     
+
+    const showContainer = document.querySelector(".ticket-container");
+    showContainer.classList.add("active")
+
+    
     }
 );
+
+const hideContainer = document.getElementById("hide-container");
+console.log("div nascosto" ,hideContainer);
+hideContainer.addEventListener("click" ,
+
+    function() {
+        const hideContainer = document.querySelector(".ticket-container");
+        hideContainer.classList.remove("active");
+    }
+);
+
+
+// document.getElementById("price").innerHTML = `ciao ${risultato}`;
 
