@@ -8,61 +8,65 @@
 
 
 
+
 const generaBiglietto = document.getElementById("genera-biglietto");
 console.log("biglietto generato" ,generaBiglietto);
 
 
-
+// Funzione
 generaBiglietto.addEventListener("click" ,
 
     function() {
-    // USER NAME
-    const userName = document.getElementById("userName").value;
+        // USER NAME
+        const userName = document.getElementById("userName").value;
 
-    // VALUE USER DISTANCE
-    const userDistance = parseInt(document.getElementById("userDistance").value);
+        // VALUE USER DISTANCE
+        const userDistance = parseInt(document.getElementById("userDistance").value);
 
-    // VALUE USER ETÀ
-    const userEta = parseInt(document.getElementById("userEta").value);
+        // VALUE USER ETÀ
+        const userEta = parseInt(document.getElementById("userEta").value);
 
-    // il prezzo del biglietto è definito in base ai km (0.21 € al km)
-    const prezzoKm = 0.21;
-    console.log("euro per km", prezzoKm);
-
-
-    let totalPrice = userDistance * prezzoKm;
-    console.log("prezzo totale per distanza", totalPrice);
+        // il prezzo del biglietto è definito in base ai km (0.21 € al km)
+        const prezzoKm = 0.21;
+        console.log("euro per km", prezzoKm);
 
 
-    // va applicato uno sconto del 20% per i minorenni
-    let sconto = 0;
-    let offerType = "Biglietto standard";
-    let risultato = 0
-
-    if (userEta <17){
-        sconto = ((totalPrice * 20) / 100);
-        offerType = "Sconto 20%";
-        console.log("sconto minorenne", sconto);
-    }
-    // va applicato uno sconto del 40% per gli over 65.
-    if (userEta >=65){
-        sconto = ((totalPrice * 40) / 100);
-        offerType = "Sconto 40%"
-        console.log("sconto over65", sconto);
-    }
+        let totalPrice = userDistance * prezzoKm;
+        console.log("prezzo totale per distanza", totalPrice);
 
 
-    risultato = totalPrice - sconto;
-    console.log(risultato);
-    
+        // va applicato uno sconto del 20% per i minorenni
+        let sconto = 0;
+        let offerType = "Biglietto standard";
+        let risultato = 0
 
-    const showContainer = document.querySelector(".ticket-container");
-    showContainer.classList.add("active")
+        if (userEta <18){
+            sconto = ((totalPrice * 20) / 100);
+            offerType = "Sconto 20%";
+            console.log("sconto minorenne", sconto);
+        }
+        // va applicato uno sconto del 40% per gli over 65.
+        if (userEta >=65){
+            sconto = ((totalPrice * 40) / 100);
+            offerType = "Sconto 40%"
+            console.log("sconto over65", sconto);
+        }
 
-    document.getElementById("traveler-name").innerHTML = `${userName}`;
-    document.getElementById("offer-type").innerHTML = `${offerType}`;
-    document.getElementById("price").innerHTML = `${risultato}`;
 
+        risultato = totalPrice - sconto;
+        console.log(risultato);
+        
+        
+        const showContainer = document.querySelector(".ticket-container");
+        showContainer.classList.add("active")
+
+        document.getElementById("traveler-name").innerHTML = `${userName}`;
+        document.getElementById("offer-type").innerHTML = `${offerType}`;
+        document.getElementById("number").innerHTML = Math.floor(Math.random() * 20) +1;
+        document.getElementById("code").innerHTML = Math.floor(Math.random() * 100000) +1;
+        document.getElementById("total-price").innerHTML = (totalPrice).toFixed(2);
+        document.getElementById("sconto").innerHTML = (sconto).toFixed(2);
+        document.getElementById("price").innerHTML = (risultato).toFixed(2);
     }
 );
 

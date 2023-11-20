@@ -5,39 +5,34 @@
 }
 
 body{
-    background-color: #ba1450;
+    background-image: url("../steampunk-train-by-ben-wootten.jpg");
+    background-size: cover;
 }
 
 .container{
-    /* text-align: center; */
     width: 100%;
 }
 
 .title{
     text-transform:uppercase;
     margin: 20px 0 30px;
-    color: white;
+    color: ;
     font-size: 35px;
     text-align: center;
 }
 
 .detail-container{
     border: 1px solid black;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    height: 230px;
+    height: 250px;
     border-radius: 20px;
     background-color: #fff;
     margin-bottom: 40px;
     text-align: center;
-    
-
-
 }
 
 .input-container{
-    /* margin: 0 auto;
-    width: 70%; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -49,9 +44,7 @@ input{
     border-color: black;
     text-align: center;
     font-size: 18px;
-    width: 60%;
-    height: 35px;
-    
+    height: 35px;   
 }
 
 input:nth-of-type(2){
@@ -67,6 +60,7 @@ input:nth-of-type(2){
 }
 
 button{
+    width: 10%;
     margin: 0 10px;
     font-weight: 700;
     font-size: 20px;
@@ -79,8 +73,8 @@ button{
 
 .ticket-container{
     border: 1px solid black;
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 20px auto 0;
     height: 250px;
     background-color: #fff;
     display: none;
@@ -103,8 +97,7 @@ button{
     margin: 0 auto;
     border: 1px solid black;
     border-left: none;
-    border-right: none;
-    
+    border-right: none; 
 }
 
 .summary {
@@ -119,6 +112,7 @@ button{
     background-color: #808080;
     text-align: center;
     padding: 5px;
+    
 }
 
 .container-name h2{
@@ -129,11 +123,12 @@ button{
 
 .summary-details{
     display: flex;
+    width: 100%;
 }
 
 .col-2{
-    width: 50%;
-    margin: 0 20px;
+    width: 20%;
+    margin-left: 10px;
 }
 
 .col-2 h4,
@@ -143,13 +138,28 @@ button{
 }
 
 .col-1{
-    width: 30%;
-    margin: 0 20px;
+    width: 15%;
+    margin: 0 30px 0 0;
 }
 
 
 .summary-details span{
     font-size: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#traveler-name{
+    font-size: 25px;
+    margin-top: 10px;  
+}
+
+#total-price::after{
+    content: "\20AC";
+}
+
+#sconto::after{
+    content: "\20AC";
 }
 
 #price::after{
