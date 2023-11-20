@@ -20,10 +20,10 @@ generaBiglietto.addEventListener("click" ,
     const userName = document.getElementById("userName").value;
 
     // VALUE USER DISTANCE
-    const userDistance = document.getElementById("userDistance").value;
+    const userDistance = parseInt(document.getElementById("userDistance").value);
 
     // VALUE USER ETÀ
-    const userEta = document.getElementById("userEta").value;
+    const userEta = parseInt(document.getElementById("userEta").value);
 
     // il prezzo del biglietto è definito in base ai km (0.21 € al km)
     const prezzoKm = 0.21;
@@ -73,6 +73,9 @@ hideContainer.addEventListener("click" ,
     function() {
         const hideContainer = document.querySelector(".ticket-container");
         hideContainer.classList.remove("active");
+        userName = document.getElementById("userName").value = ("");
+        userDistance = parseInt(document.getElementById("userDistance").value = (null));
+        userEta = parseInt(document.getElementById("userEta").value = (null));
     }
 );
 
