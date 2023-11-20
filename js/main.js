@@ -36,16 +36,18 @@ generaBiglietto.addEventListener("click" ,
 
     // va applicato uno sconto del 20% per i minorenni
     let sconto = 0;
+    let offerType = "Biglietto standard";
     let risultato = 0
-
 
     if (userEta <17){
         sconto = ((totalPrice * 20) / 100);
+        offerType = "Sconto 20%";
         console.log("sconto minorenne", sconto);
     }
     // va applicato uno sconto del 40% per gli over 65.
     if (userEta >=65){
         sconto = ((totalPrice * 40) / 100);
+        offerType = "Sconto 40%"
         console.log("sconto over65", sconto);
     }
 
@@ -57,7 +59,10 @@ generaBiglietto.addEventListener("click" ,
     const showContainer = document.querySelector(".ticket-container");
     showContainer.classList.add("active")
 
-    
+    document.getElementById("traveler-name").innerHTML = `${userName}`;
+    document.getElementById("offer-type").innerHTML = `${offerType}`;
+    document.getElementById("price").innerHTML = `${risultato}`;
+
     }
 );
 
@@ -72,5 +77,5 @@ hideContainer.addEventListener("click" ,
 );
 
 
-// document.getElementById("price").innerHTML = `ciao ${risultato}`;
+
 
